@@ -1,0 +1,1 @@
+create table users(email VARCHAR(50) PRIMARY KEY )

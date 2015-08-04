@@ -20,7 +20,7 @@
     </dependencies>
 
     <build>
-        <finalName>TriageAPI</finalName>
+        <finalName>triage-app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
