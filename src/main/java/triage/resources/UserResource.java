@@ -1,7 +1,7 @@
-package controllers;
+package triage.resources;
 
-import models.User;
-import services.UserService;
+import triage.models.User;
+import triage.services.UserService;
 
 import javax.inject.Inject;
 import javax.json.Json;
@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 @Path("/users")
-public class UserController {
+public class UserResource {
 
     @Inject
     private UserService userService;

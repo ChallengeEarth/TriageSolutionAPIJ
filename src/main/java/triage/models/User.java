@@ -1,4 +1,4 @@
-package models;
+package triage.models;
 
 
 import javax.persistence.Entity;

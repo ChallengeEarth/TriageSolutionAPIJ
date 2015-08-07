@@ -1,6 +1,6 @@
-package services;
+package triage.services;
 
-import models.User;
+import triage.models.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
