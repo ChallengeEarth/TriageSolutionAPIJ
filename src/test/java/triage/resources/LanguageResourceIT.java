@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static com.jayway.restassured.RestAssured.*;
 
-public class LanguageResourceTest {
+public class LanguageResourceIT {
 
     @Test
     public void GermanLanguageAvailable() {
