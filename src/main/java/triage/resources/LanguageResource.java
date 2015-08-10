@@ -10,10 +10,11 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import java.util.ArrayList;
+import java.util.List;
 
 @Stateless
 @Path("/languages")
-@Api(value = "LanguageResource")
+@Api(value = "Language Resource")
 public class LanguageResource {
 
     @Inject
@@ -21,7 +22,7 @@ public class LanguageResource {
 
     @GET
     @Produces("application/json")
-    public ArrayList<Language> getAllLanguages() {
+    public List<Language> getAllLanguages() {
         return new ArrayList<Language>(languageService.getAll());
     }
 }
