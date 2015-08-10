@@ -16,7 +16,7 @@ public class LanguageResourceIT {
     public void GermanLanguageAvailable() {
 
         //Arrange
-        Language expectedGermanLanguage = new Language("de","Guten Tag","http://localhost:8080/images/language_flags/de.png");
+        Language expectedGermanLanguage = new Language("de","Guten Tag","http://localhost:8080/triage-app/images/language_flags/de.png");
 
         //Act
         Response response =
