@@ -1,6 +1,8 @@
 package triage.services;
 
-import triage.models.User;
+
+import triage.models.Patient;
+import triage.models.Question;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -9,13 +11,13 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Stateless
+public class QuestionService {
 
-public class UserService {
     @PersistenceContext
     private EntityManager em;
 
-    public List<User> getAll() {
-        TypedQuery<User> query = em.createQuery("select u from User u", User.class);
-        return query.getResultList();
+    public Question findById(int questionId) {
+        Question firstQuestion = em.find(Question.class, questionId);
+        return firstQuestion;
     }
 }

@@ -1,5 +1,7 @@
 package triage.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -10,7 +12,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "patients")
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class Patient {
 
     @Id

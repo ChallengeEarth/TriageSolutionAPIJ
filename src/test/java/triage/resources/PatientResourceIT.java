@@ -4,8 +4,10 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 import org.junit.Test;
 import triage.models.Patient;
+import triage.seed.PatientSeed;
 
 import java.util.Date;
+import java.util.UUID;
 
 import static com.jayway.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,7 +21,7 @@ public class PatientResourceIT {
     @Test
     public void GetDefaultPatient(){
         //Arrange
-        Patient expectedPatient = new Patient(12, "John Doe", 45, "Schmerzen in der Brust", new Date());
+        Patient expectedPatient = PatientSeed.CreateDefaultPatient();
 
         //Act
         Response response =

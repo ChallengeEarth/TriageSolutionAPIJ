@@ -5,6 +5,7 @@ import com.jayway.restassured.response.Response;
 import javax.ws.rs.core.Response.Status;
 import org.junit.Test;
 import triage.models.Language;
+import triage.seed.LanguageSeed;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -16,7 +17,7 @@ public class LanguageResourceIT {
     public void GermanLanguageAvailable() {
 
         //Arrange
-        Language expectedGermanLanguage = new Language("de","Guten Tag","http://localhost:8080/triage-app/images/language_flags/de.png");
+        Language expectedGermanLanguage = LanguageSeed.CreateGermanLanguage();
 
         //Act
         Response response =
