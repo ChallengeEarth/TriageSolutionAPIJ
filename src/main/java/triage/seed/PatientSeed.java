@@ -20,6 +20,6 @@ public class PatientSeed {
     }
 
     public static Patient CreateDefaultPatient() {
-        return new Patient(12, "John Doe", 45, "Schmerzen in der Brust", new Date());
+        return new Patient("John Doe", 45, "Schmerzen in der Brust", new Date());
     }
 }

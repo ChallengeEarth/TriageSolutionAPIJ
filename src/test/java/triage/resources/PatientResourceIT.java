@@ -35,6 +35,6 @@ public class PatientResourceIT {
         Patient[] patients = response.as(Patient[].class);
 
         //Assert
-        assertThat(patients,hasItemInArray(expectedPatient));
+        assertThat(patients,hasItemInArray(hasProperty("name",equalTo(expectedPatient.getName()))));
     }
 }

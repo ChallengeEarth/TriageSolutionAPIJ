@@ -14,7 +14,7 @@ public class LanguageService {
     private EntityManager em;
 
     public List<Language> getAll() {
-        TypedQuery<Language> query = em.createQuery("select l from Language l", Language.class);
+        TypedQuery<Language> query = em.createNamedQuery("Language.all", Language.class);
         return query.getResultList();
     }
 }

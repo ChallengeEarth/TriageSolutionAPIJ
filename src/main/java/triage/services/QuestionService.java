@@ -1,6 +1,7 @@
 package triage.services;
 
 
+import triage.models.Language;
 import triage.models.Patient;
 import triage.models.Question;
 
@@ -19,5 +20,14 @@ public class QuestionService {
     public Question findById(int questionId) {
         Question firstQuestion = em.find(Question.class, questionId);
         return firstQuestion;
+    }
+
+    public void saveQuestion(Question question) {
+        em.persist(question);
+    }
+
+    public Question findFirstElement() {
+        TypedQuery<Question> query = em.createNamedQuery("Question.root",Question.class);
+        return query.getSingleResult();
     }
 }

@@ -13,7 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Answer {
     @Id
-    private int id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
     private String answerMessage;
 
     @ManyToOne(fetch=FetchType.LAZY)
@@ -27,20 +28,19 @@ public class Answer {
     public Answer() {
     }
 
-    public Answer(int id, String answerMessage, Question parentQuestion, Question followingQuestion) {
-        this.id = id;
+    public Answer(String answerMessage, Question parentQuestion, Question followingQuestion) {
         this.answerMessage = answerMessage;
         this.parentQuestion = parentQuestion;
         this.followingQuestion = followingQuestion;
     }
 
     @XmlAttribute
-    public int getId() {
+    public long getId() {
         return id;
     }
 
     @XmlAttribute
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -55,7 +55,7 @@ public class Answer {
     }
 
     @XmlAttribute
-    public int getFollowingQuestionId() {
+    public long getFollowingQuestionId() {
         if(followingQuestion != null) {
             return followingQuestion.getId();
         } else {
@@ -70,7 +70,9 @@ public class Answer {
      */
     public void setFollowingQuestionId(int followingQuestionId) {
         if (followingQuestion == null) {
-            Question dummyQuestion = new Question(followingQuestionId, "I'm a dummy-question!");
+            Question dummyQuestion = new Question("I'm a dummy-question!");
+            dummyQuestion.setId(followingQuestionId);
+
             setFollowingQuestion(dummyQuestion);
         } else {
             throw new IllegalStateException("You should not use setFollowingQuestionId() if that's not a test-scenario");
@@ -121,9 +123,9 @@ public class Answer {
      */
     @Override
     public int hashCode() {
-        int result = getId();
+        int result = (int) (getId() ^ (getId() >>> 32));
         result = 31 * result + (getAnswerMessage() != null ? getAnswerMessage().hashCode() : 0);
-        result = 31 * result + getFollowingQuestionId();
+        result = 31 * result + (int)getFollowingQuestionId();
         return result;
     }
 }

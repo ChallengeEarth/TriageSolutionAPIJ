@@ -16,7 +16,8 @@ import java.util.UUID;
 public class Patient {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
     private String name;
     private int age;
     private String chiefComplaint;
@@ -28,8 +29,7 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(int id, String name, int age, String chiefComplaint, Date createdAt) {
-        this.id = id;
+    public Patient(String name, int age, String chiefComplaint, Date createdAt) {
         this.name = name;
         this.age = age;
         this.chiefComplaint = chiefComplaint;
@@ -38,11 +38,11 @@ public class Patient {
 
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -94,7 +94,7 @@ public class Patient {
 
     @Override
     public int hashCode() {
-        int result = getId();
+        int result = (int) (getId() ^ (getId() >>> 32));
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + getAge();
         result = 31 * result + (getChiefComplaint() != null ? getChiefComplaint().hashCode() : 0);
